@@ -129,12 +129,18 @@ TTL: 14400 or provider default
 
 ### 4. Future Upgrade Path
 
+Current public install entry points:
+
+- Android APK: temporarily points to the EAS production APK artifact for
+  Android `1.0.2` / build `8`. This artifact expires on 2026-09-01 and should
+  be replaced with permanent public storage before broader launch.
+- iOS: App Store link for App Store Connect app ID `6767374281`.
+
 When the app is ready for broader testing, add:
 
-- Android APK/internal testing link
-- TestFlight link
-- Play Store / App Store badges
-- QR code for install/testing
+- Android closed-testing / Play Store link
+- TestFlight link when useful for pre-release groups
+- QR code for Android APK and App Store install
 - screenshots or short product preview video
 
 ## Local Preview
