@@ -65,85 +65,130 @@ a {
   display: grid;
   min-height: 100svh;
   padding: clamp(1.25rem, 4vw, 3rem);
-  padding-bottom: clamp(3rem, 8vh, 5rem);
+  padding-bottom: clamp(3.25rem, 6vh, 4.35rem);
 }
 
 .hero-panel {
-  backdrop-filter: blur(18px);
-  background: linear-gradient(180deg, rgba(5, 5, 6, 0.52), rgba(5, 5, 6, 0.82));
-  border: 1px solid var(--line);
-  border-radius: 1.75rem;
+  backdrop-filter: blur(24px) saturate(1.25);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 217, 122, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(28, 29, 33, 0.64), rgba(8, 9, 11, 0.8)),
+    rgba(7, 8, 10, 0.58);
+  border: 1px solid rgba(255, 217, 122, 0.2);
+  border-radius: 1.28rem;
   box-shadow:
-    0 0 42px rgba(229, 169, 0, 0.18),
-    inset 0 0 30px rgba(255, 217, 122, 0.05);
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    0 0 36px rgba(229, 169, 0, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   margin-inline: auto;
-  max-width: 42rem;
-  padding: clamp(1.35rem, 4vw, 2.3rem);
+  max-width: 38rem;
+  padding: clamp(1.05rem, 2.8vw, 1.65rem);
+  position: relative;
   text-align: center;
-  width: min(100%, 46rem);
+  width: min(100%, 39.5rem);
+}
+
+.hero-panel::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  content: "";
+  height: 1px;
+  inset: 0.95rem 1.4rem auto;
+  position: absolute;
 }
 
 .eyebrow,
 .page-kicker {
   color: var(--gold);
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 0.12em;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.58rem;
   text-transform: uppercase;
 }
 
 h1 {
-  font-size: clamp(2.8rem, 11vw, 6.25rem);
+  font-size: clamp(2.35rem, 7.2vw, 4.35rem);
   letter-spacing: 0;
-  line-height: 0.88;
+  line-height: 0.92;
   margin: 0;
   text-transform: uppercase;
 }
 
 .lead {
   color: var(--soft);
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  margin: 1rem auto 0;
-  max-width: 37rem;
+  font-size: clamp(0.88rem, 1.5vw, 1rem);
+  margin: 0.74rem auto 0;
+  max-width: 31rem;
 }
 
 .store-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
+  gap: 0.72rem;
   justify-content: center;
-  margin-top: 1.9rem;
+  margin-top: 1.25rem;
 }
 
 .store-badge {
   align-items: center;
-  background: linear-gradient(180deg, rgba(16, 17, 20, 0.96), rgba(0, 0, 0, 0.94));
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 0.85rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)),
+    rgba(7, 8, 10, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.45),
-    0 18px 34px rgba(0, 0, 0, 0.28);
+    0 12px 30px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   color: var(--text);
   display: inline-flex;
-  gap: 0.72rem;
+  gap: 0.66rem;
   justify-content: flex-start;
-  min-height: 4rem;
-  min-width: 12.9rem;
-  padding: 0.62rem 1rem;
+  min-height: 3.42rem;
+  min-width: 11.7rem;
+  overflow: hidden;
+  padding: 0.5rem 0.78rem;
+  position: relative;
   text-decoration: none;
+  animation: badge-breathe 5.5s ease-in-out infinite;
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease;
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.store-badge:nth-child(2) {
+  animation-delay: 600ms;
+}
+
+.store-badge::before {
+  background: linear-gradient(115deg, transparent 15%, rgba(255, 255, 255, 0.22) 45%, transparent 70%);
+  content: "";
+  inset: -80% auto -80% -55%;
+  position: absolute;
+  transform: rotate(18deg);
+  transition: transform 520ms ease;
+  width: 42%;
 }
 
 .store-badge:hover {
-  border-color: rgba(255, 217, 122, 0.52);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)),
+    rgba(12, 13, 15, 0.84);
+  border-color: rgba(255, 217, 122, 0.42);
   box-shadow:
-    0 0 0 1px rgba(229, 169, 0, 0.18),
-    0 18px 38px rgba(229, 169, 0, 0.12);
-  transform: translateY(-1px);
+    0 16px 34px rgba(0, 0, 0, 0.38),
+    0 0 24px rgba(229, 169, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px) scale(1.012);
+}
+
+.store-badge:hover::before {
+  transform: translateX(380%) rotate(18deg);
+}
+
+.store-badge:active {
+  transform: translateY(0) scale(0.985);
 }
 
 .store-badge small,
@@ -154,35 +199,70 @@ h1 {
 
 .store-badge small {
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  margin-bottom: 0.26rem;
+  margin-bottom: 0.2rem;
 }
 
 .store-badge strong {
-  font-size: 1.28rem;
+  font-size: 1.08rem;
   font-weight: 900;
   letter-spacing: 0;
 }
 
 .store-icon {
   align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.78rem;
   display: inline-flex;
   flex: 0 0 auto;
-  height: 2.2rem;
+  height: 2.18rem;
   justify-content: center;
-  width: 2.2rem;
+  width: 2.18rem;
 }
 
 .store-icon svg {
   fill: currentColor;
-  height: 100%;
-  width: 100%;
+  height: 68%;
+  width: 68%;
 }
 
 .store-icon.apple {
-  height: 2.35rem;
-  width: 2.35rem;
+  height: 2.18rem;
+  width: 2.18rem;
+}
+
+.store-icon.apple svg {
+  height: 72%;
+  width: 72%;
+}
+
+@keyframes badge-breathe {
+  0%,
+  100% {
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.36),
+      0 0 16px rgba(229, 169, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-badge {
+    animation: none;
+    transition: none;
+  }
+
+  .store-badge::before {
+    display: none;
+  }
 }
 
 .footer {
